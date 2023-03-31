@@ -1,6 +1,6 @@
 Name:		texlive-texaccents
 Version:	64447
-Release:	1
+Release:	2
 Summary:	Convert composite accented characters to Unicode
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/texaccents
