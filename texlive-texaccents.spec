@@ -3,7 +3,7 @@ Version:	64447
 Release:	2
 Summary:	Convert composite accented characters to Unicode
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/texaccents
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/texaccents
 License:	mit
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texaccents.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texaccents.doc.r%{version}.tar.xz
