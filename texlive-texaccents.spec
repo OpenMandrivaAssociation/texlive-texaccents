@@ -1,46 +1,23 @@
-Name:		texlive-texaccents
-Version:	64447
-Release:	2
+%global tl_name texaccents
+%global tl_revision 64447
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0.1
+Release:	%{tl_revision}.1
 Summary:	Convert composite accented characters to Unicode
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/texaccents
+URL:		https://www.ctan.org/tex-archive/support/texaccents
 License:	mit
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texaccents.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texaccents.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/texaccents.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/texaccents.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/texaccents.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/texaccents.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Requires:	texlive(texaccents.bin)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This small utility, written in SNOBOL, converts the composition
-of special characters to Unicode, e. g. \"{a} - a, \k{a} - a,
-...
+This small utility, written in SNOBOL, converts the composition of
+special characters to Unicode, e. g. \"{a} - a, \k{a} - a, ...
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_datadir}
-cp -a texmf-dist %{buildroot}%{_datadir}
-
-%files
-%doc %{_texmfdistdir}/texmf-dist/source/support/texaccents
-%{_texmfdistdir}/texmf-dist/scripts/texaccents
-%doc %{_texmfdistdir}/texmf-dist/doc/support/texaccents
-%{_texmfdistdir}/texmf-dist
-%{_texmfdistdir}/texmf-dist/doc
-%doc %{_texmfdistdir}/texmf-dist/doc/man
-%doc %{_texmfdistdir}/texmf-dist/doc/man/man1
-%doc %{_texmfdistdir}/texmf-dist/doc/man/man1/texaccents.man1.pdf
-%doc %{_texmfdistdir}/texmf-dist/doc/man/man1/texaccents.1
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
