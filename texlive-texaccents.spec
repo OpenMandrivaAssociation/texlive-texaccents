@@ -1,5 +1,6 @@
 %global tl_name texaccents
 %global tl_revision 64447
+%global tl_bin_links texaccents:%{_texmfdistdir}/scripts/texaccents/texaccents.sno
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -16,6 +17,8 @@ BuildArch:	noarch
 BuildSystem:	texlive
 Requires:	texlive(texaccents.bin)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 This small utility, written in SNOBOL, converts the composition of
